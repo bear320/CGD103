@@ -9,7 +9,16 @@ module.exports = {
         filename: "app.js",
     },
     // 處裡對應模組
-    // module: {},
+    module: {
+        rules: [
+            {
+                // 格式
+                test: /\.css$/,
+                //順序是由下到上 css > style
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
     // 對應的插件
     // plugins: [],
     // 服務器配置
