@@ -1,11 +1,16 @@
 import $ from "jquery";
 import gsap from "gsap";
-import "./css/style.css"; // css 注入
+
+// css 注入
+import "./css/style.css";
+// import "./css/header.css";
+import "./css/footer.css";
+import "./sass/style.scss";
 
 console.log("start");
 
 // jquery
-$("body").css("background-color", "#333");
+$("body").css("background-color", "lightblue");
 
 // gsap
 gsap.set(".box", {

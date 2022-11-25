@@ -1,26 +1,52 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     // 入口文件
-    entry: "./src/index.js",
+    // app --> chunks
+    entry: { index: "./src/index.js", about: "./src/about.js" },
     // 出口文件
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "app.js",
+        filename: "[name].js",
     },
     // 處裡對應模組
     module: {
         rules: [
             {
                 // 格式
-                test: /\.css$/,
+                test: /\.(sass|scss|css)$/,
                 //順序是由下到上 css > style
-                use: ["style-loader", "css-loader"],
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "./dist",
+                        },
+                    },
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
         ],
     },
     // 對應的插件
-    // plugins: [],
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "./[name].css",
+        }),
+        new HtmlWebpackPlugin({
+            // 選擇注入資源 chunk
+            chunks: ["index"],
+            // 預設 <body> js </body>  head or body
+            inject: "body",
+            // 來源
+            template: "./src/index.html",
+            // 目的地
+            filename: "index.html",
+        }),
+    ],
     // 服務器配置
     // devServer: {},
     // 開發模式配置 --> production / development

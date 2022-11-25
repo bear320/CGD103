@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  text-align: center; }
+
+footer {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  text-align: center; }
+
+body {
+  color: lightcoral;
+  background-color: lightblue; }
+
+.box {
+  width: 80px;
+  height: 80px;
+  background-color: lightsalmon; }
+
