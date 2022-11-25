@@ -46,6 +46,16 @@ module.exports = {
             // 目的地
             filename: "index.html",
         }),
+        new HtmlWebpackPlugin({
+            // 選擇注入資源 chunk
+            chunks: ["about"],
+            // 預設 <body> js </body>  head or body
+            inject: "body",
+            // 來源
+            template: "./src/about.html",
+            // 目的地
+            filename: "about.html",
+        }),
     ],
     // 服務器配置
     // devServer: {},
