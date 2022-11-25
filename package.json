@@ -4,7 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "安裝套件": "npm install",
+        "服務器開啟": "webpack-dev-server",
+        "開發": "webpack -d -w",
+        "上線": "webpack -p"
     },
     "keywords": [],
     "author": "",

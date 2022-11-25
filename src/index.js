@@ -17,9 +17,13 @@ gsap.set(".box", {
     x: 300,
     y: 300,
 });
-gsap.to(".box", {
+const tl = gsap.timeline();
+tl.to(".box", {
     duration: 2,
     rotation: 360,
-    repeat: -1,
     scale: 3,
+}).to(".box", {
+    x: 700,
+    y: 500,
+    backgroundColor: beige,
 });
